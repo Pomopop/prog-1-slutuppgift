@@ -58,14 +58,12 @@ figpiedödöverunder60 = px.pie(df, X="ÅldersGrupper", Y="Dödöverunder60", ti
 
 figbarsjuka = go.Figure(
    data = [go.Bar(y="FallperÅldersgrupp", x="ÅldersGrupper")],
-    layout_title_text="Antalet Fall",
+    layout_title_text="Antalet Fall")
 
 figbarsjukaperdöd = go.Figure(
     data = [go.Bar(y="SjukaperDöd", x="ÅldersGrupper")],
-    layout_title_text="Hur många som överlever per död"
+    layout_title_text="Hur många som överlever per död")
 
-    )
-)
 
 
 app.layout = HTML.Div(children=[
@@ -90,10 +88,10 @@ app.layout = HTML.Div(children=[
 
 @app.callback(
     Output("graph", "figure"),
-    [Input("drop",)]
+    [Input("drop")]
 )
 
-def update_figure(value):
+def update_figure():
     
     if x == 'Döda': fig = figpiedöd
     elif x == 'Sjuka': fig = figbarsjuka
